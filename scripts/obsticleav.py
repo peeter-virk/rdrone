@@ -85,7 +85,7 @@ def node():
 			vel_msg.linear.z = 0
 			vel_msg.angular.x = 0
 			vel_msg.angular.y = 0
-			vel_msg.angular.z = (hd-distance)*5
+			vel_msg.angular.z = (hd-distance)*5# /odom
 			'''
 			if distance > hd+0.1:
 				print("greater")
