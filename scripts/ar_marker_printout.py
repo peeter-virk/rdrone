@@ -8,7 +8,7 @@ def marker_callback(data):
 	print("pose")
 	print(data.pose.position)
 	print("rotation")
-	orientation = list(euler_from_quaternion([data.pose.orientation.x,data.pose.orientation.y,data.pose.orientation.z,data.pose.orientation.w]))
+	orientation = list(euler_from_quaternion([data.pose.orientation.w,data.pose.orientation.x,data.pose.orientation.y,data.pose.orientation.z]))
 	print("X: ", orientation[0])
 	print("Y: ", orientation[1])
 	print("Z: ", orientation[2])
