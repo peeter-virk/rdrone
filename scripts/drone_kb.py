@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from pynput import keyboard
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Empty

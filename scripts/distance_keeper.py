@@ -1,3 +1,4 @@
+#! /usr/bin/env python2.7
 import rospy
 from visualization_msgs.msg import Marker
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
@@ -42,9 +43,9 @@ if __name__ == "__main__":
 		vel_msg = Twist()
 		vel_msg.linear.x = (position[2]-1)*2
 		vel_msg.linear.y = 0
-		vel_msg.linear.z = (position[1]) * -0.5
+		vel_msg.linear.z = (position[1]) * -2
 		vel_msg.angular.x = 0
 		vel_msg.angular.y = 0
-		vel_msg.angular.z = (position[0])*-4
+		vel_msg.angular.z = (position[0])*-6
 		mov.publish(vel_msg)
 		rate.sleep()
