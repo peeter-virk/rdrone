@@ -43,14 +43,14 @@ listener = keyboard.Listener(
 listener.start()
 
 
-pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
-takeoff = rospy.Publisher('/drone/takeoff', Empty, queue_size=10)
-land = rospy.Publisher('/drone/land', Empty, queue_size=10)
+pub = rospy.Publisher('/bebop/cmd_vel', Twist, queue_size=10)
+takeoff = rospy.Publisher('/bebop/takeoff', Empty, queue_size=10)
+land = rospy.Publisher('/bebop/land', Empty, queue_size=10)
 rospy.init_node('dronekb', anonymous=True)
 
 rate = rospy.Rate(10) # 10hz
 
-speed = 10
+speed = 0.1
 # w,a,s,d,i,j,k,l,z,x,h
 while not rospy.is_shutdown():
     print(controllmap)
@@ -65,10 +65,10 @@ while not rospy.is_shutdown():
         
     vel_msg.linear.x = (controllmap[0] - controllmap[2]) * speed
     vel_msg.linear.y = (controllmap[1] - controllmap[3]) * speed
-    vel_msg.linear.z = (controllmap[4] - controllmap[6]) * speed * 0.1
-    vel_msg.angular.x = (controllmap[10] - controllmap[12]) * speed * 0.1
-    vel_msg.angular.y = (controllmap[11] - controllmap[13]) * speed * 0.1
-    vel_msg.angular.z = (controllmap[5] - controllmap[7]) * speed * 0.1
+    vel_msg.linear.z = (controllmap[4] - controllmap[6]) * speed
+    vel_msg.angular.x = (controllmap[10] - controllmap[12]) * speed
+    vel_msg.angular.y = (controllmap[11] - controllmap[13]) * speed
+    vel_msg.angular.z = (controllmap[5] - controllmap[7]) * speed
     pub.publish(vel_msg)
     rate.sleep()
     

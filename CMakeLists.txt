@@ -69,10 +69,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-	DEPENDENCIES
-	std_msgs
-)
+#generate_messages(
+#	DEPENDENCIES
+#	std_msgs
+#)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -167,6 +167,7 @@ include_directories(
    scripts/ar_marker_printout.py
    scripts/moveto.py
    scripts/distance_keeper.py
+   scripts/tracker.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
